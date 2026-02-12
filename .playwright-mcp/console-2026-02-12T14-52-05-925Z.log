@@ -1,0 +1,6 @@
+[    3107ms] [ERROR] Failed to load resource: the server responded with a status of 429 () @ https://claude.ai/sentry?o=1158394&p=4504646202490880:0
+[   35884ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://claude.ai/api/organizations/8beec71b-e858-42e8-9e44-7c563856ba3d/sync/mcp/drive/recents:0
+[   35888ms] [ERROR] [REACT_QUERY_CLIENT] QueryClient error: a: Failed to connect to Google Drive
+    at i (https://claude.ai/_next/static/chunks/64328-0b7b6890d547ba6a.js:1:17906)
+    at https://claude.ai/_next/static/chunks/64328-0b7b6890d547ba6a.js:1:19783
+    at async https://claude.ai/_next/static/chunks/64328-0b7b6890d547ba6a.js:1:21085 @ https://claude.ai/_next/static/chunks/92351-eb348c31a1e758dd.js:12

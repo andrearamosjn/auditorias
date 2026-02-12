@@ -1,0 +1,14 @@
+[    2806ms] [ERROR] Failed to load resource: the server responded with a status of 429 () @ https://claude.ai/sentry?o=1158394&p=4504646202490880:0
+[   33922ms] [ERROR] Connecting to 'https://a-api.anthropic.com/v1/m' violates the following Content Security Policy directive: "connect-src 'self' https://api.segment.io https://*.segment.io https://*.segment.com https://a-cdn.anthropic.com https://*.google.com https://*.facebook.com https://*.facebook.net https://*.doubleclick.net". The action has been blocked. @ https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:0
+[   33922ms] [ERROR] Fetch API cannot load https://a-api.anthropic.com/v1/m. Refused to connect because it violates the document's Content Security Policy. @ https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:0
+[   33922ms] [ERROR] Error sending segment performance metrics TypeError: Failed to fetch
+    at o (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:23763)
+    at t.<anonymous> (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:22238)
+    at https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:33689
+    at Object.next (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:33794)
+    at https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:32710
+    at new Promise (<anonymous>)
+    at u (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:32455)
+    at t.send (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:22021)
+    at t.<anonymous> (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:21894)
+    at https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:33689 @ https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:0

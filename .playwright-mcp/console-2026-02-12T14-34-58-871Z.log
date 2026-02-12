@@ -1,0 +1,21 @@
+[    5816ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at rD (https://claude.ai/_next/static/chunks/87c73c54-c29c3ea92a45d1c3.js:1:35816)
+    at oq (https://claude.ai/_next/static/chunks/87c73c54-c29c3ea92a45d1c3.js:1:85320)
+    at ik (https://claude.ai/_next/static/chunks/87c73c54-c29c3ea92a45d1c3.js:1:115436)
+    at https://claude.ai/_next/static/chunks/87c73c54-c29c3ea92a45d1c3.js:1:111484
+    at iu (https://claude.ai/_next/static/chunks/87c73c54-c29c3ea92a45d1c3.js:1:111585)
+    at iX (https://claude.ai/_next/static/chunks/87c73c54-c29c3ea92a45d1c3.js:1:133688)
+    at MessagePort.j (https://claude.ai/_next/static/chunks/92351-eb348c31a1e758dd.js:18:45228)
+[   36200ms] [ERROR] Connecting to 'https://a-api.anthropic.com/v1/m' violates the following Content Security Policy directive: "connect-src 'self' https://api.segment.io https://*.segment.io https://*.segment.com https://a-cdn.anthropic.com https://*.google.com https://*.facebook.com https://*.facebook.net https://*.doubleclick.net". The action has been blocked. @ https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:0
+[   36200ms] [ERROR] Fetch API cannot load https://a-api.anthropic.com/v1/m. Refused to connect because it violates the document's Content Security Policy. @ https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:0
+[   36200ms] [ERROR] Error sending segment performance metrics TypeError: Failed to fetch
+    at o (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:23763)
+    at t.<anonymous> (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:22238)
+    at https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:33689
+    at Object.next (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:33794)
+    at https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:32710
+    at new Promise (<anonymous>)
+    at u (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:32455)
+    at t.send (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:22021)
+    at t.<anonymous> (https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:21894)
+    at https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:1:33689 @ https://a-cdn.anthropic.com/analytics.js/v1/LKJN8LsLERHEOXkw487o7qCTFOrGPimI/analytics.min.js:0
