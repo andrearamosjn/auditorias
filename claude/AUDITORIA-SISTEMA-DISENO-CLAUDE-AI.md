@@ -22,6 +22,35 @@
 | 10 | Página de Upgrade / Planes | `10-upgrade-plans.png` |
 | 11 | Conversación de chat | `11-chat-conversation.png` |
 | 12 | Categoría de prompts (Crear) | `12-prompt-category-crear.png` |
+| 13 | Verificación de seguridad (Cloudflare) | `13-login.png` |
+
+---
+
+## 1b. Pantalla de entrada: Verificación de seguridad (Cloudflare)
+
+**Archivo:** `13-login.png`
+
+Esta es la primera pantalla que ve cualquier usuario al acceder a claude.ai. Es una página de Cloudflare Turnstile (challenge anti-bot) que actúa como puerta de entrada antes de la app.
+
+### Análisis de diseño
+
+| Elemento | Valor | Observación |
+|----------|-------|-------------|
+| **Fondo** | `#FFFFFF` (blanco puro) | **Rompe** con el crema `#FAF9F5` de la app |
+| **Logo** | Asterisco terracota + "claude.ai" | Tipografía sans-serif, peso medio, ~40px |
+| **Título** | "Verificación de seguridad en curso" | Negro, bold, ~20px |
+| **Cuerpo** | Texto descriptivo | Gris oscuro, ~16px, buena legibilidad |
+| **Widget** | Cloudflare Turnstile | Caja con borde, "Verificando...", logo Cloudflare |
+| **Footer** | Ray ID + links Cloudflare/Privacidad | Texto centrado, gris, ~12px |
+| **Layout** | Contenido alineado izquierda, centrado vertical parcial | Mucho espacio vacío debajo |
+
+### Hallazgos
+
+- **Inconsistencia de fondo:** El blanco puro `#FFFFFF` contrasta con el crema cálido `#FAF9F5` que el usuario verá inmediatamente después. La transición puede ser perceptible.
+- **Sin branding extendido:** Solo el logo asterisco + nombre. No hay ilustración, color de marca ni calidez visual. La primera impresión es fría y genérica.
+- **Fuera del control del design system:** Esta página la sirve Cloudflare, no la app de Claude. Es difícil personalizarla, aunque Cloudflare Turnstile permite cierta customización de tema.
+- **i18n correcto:** El texto está en español, consistente con el idioma del navegador.
+- **UX de espera:** No hay indicador de progreso claro más allá del spinner del widget. En conexiones lentas puede generar incertidumbre.
 
 ---
 

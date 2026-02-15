@@ -296,6 +296,76 @@
     .tok-tbl code { font-family: 'SF Mono', monospace; font-size: 12px; background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; }
     .color-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 6px; border: 1px solid var(--border-light); }
 
+    /* ===== SCORECARD ===== */
+    .score-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .score-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px; text-align: center; box-shadow: var(--shadow-xs); }
+    .score-card__grade { font-size: 36px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .score-card__grade--a { color: #2E7D32; }
+    .score-card__grade--b { color: #558B2F; }
+    .score-card__grade--c { color: #F57F17; }
+    .score-card__grade--d { color: #E65100; }
+    .score-card__label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); }
+    .score-card__detail { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; }
+
+    /* ===== METRICS ===== */
+    .metrics-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 32px; }
+    .metric { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 16px; text-align: center; }
+    .metric__value { font-size: 28px; font-weight: 700; color: var(--text-primary); line-height: 1; }
+    .metric__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-top: 4px; }
+
+    /* ===== METHODOLOGY ===== */
+    .method-note { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px 24px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 24px 0; }
+    .method-note strong { color: var(--text-primary); }
+
+    /* ===== RECOMMENDATIONS ===== */
+    .rec-grid { display: grid; gap: 12px; }
+    .rec-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px 24px; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: start; }
+    .rec-priority { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: var(--radius-full); font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .rec-priority--high { background: #FFEBEE; color: #C62828; }
+    .rec-priority--medium { background: #FFF3E0; color: #E65100; }
+    .rec-priority--low { background: #E3F2FD; color: #1565C0; }
+    .rec-card__title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .rec-card__desc { font-size: 13px; color: var(--text-tertiary); line-height: 1.5; }
+    .rec-effort { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary); white-space: nowrap; padding-top: 2px; }
+
+    /* ===== PATTERNS ===== */
+    .pattern-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+    .pattern-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-xs); }
+    .pattern-card__icon { font-size: 24px; margin-bottom: 12px; }
+    .pattern-card__title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .pattern-card__desc { font-size: 13px; color: var(--text-tertiary); line-height: 1.5; }
+    .pattern-card__tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: var(--radius-full); margin-top: 10px; }
+    .pattern-card__tag--good { background: #E8F5E9; color: #2E7D32; }
+    .pattern-card__tag--ok { background: #FFF3E0; color: #E65100; }
+    .pattern-card__tag--missing { background: #FFEBEE; color: #C62828; }
+
+    /* ===== BRAND / TIMELINE / COMPARISON ===== */
+    .brand-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 24px; box-shadow: var(--shadow-xs); }
+    .brand-card__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 8px; }
+    .brand-card__title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .brand-card__text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .brand-card__text a { color: var(--accent); text-decoration: none; }
+    .brand-card__text a:hover { text-decoration: underline; }
+    .brand-card__text code { background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: var(--border-medium); border-radius: 1px; }
+    .tl-item { position: relative; margin-bottom: 24px; }
+    .tl-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg-surface); border: 2px solid var(--brand-terracotta); }
+    .tl-item--current::before { background: var(--brand-terracotta); }
+    .tl-date { font-size: 12px; font-weight: 600; color: var(--brand-terracotta); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+    .tl-title { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .tl-desc { font-size: 13px; color: var(--text-tertiary); line-height: 1.5; }
+
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xs); border: 1px solid var(--border-light); }
+    .comp-table th { background: var(--bg-secondary); padding: 12px 16px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .comp-table td { padding: 12px 16px; border-top: 1px solid var(--border-light); vertical-align: top; line-height: 1.5; }
+    .comp-table tr:hover td { background: rgba(250,249,245,0.5); }
+    .comp-badge { display: inline-block; padding: 2px 8px; border-radius: var(--radius-full); font-size: 11px; font-weight: 600; }
+    .comp-badge--claude { background: #FAF0EB; color: #C4622D; }
+    .comp-badge--chatgpt { background: #E8F5E9; color: #2E7D32; }
+    .comp-badge--gemini { background: #E3F2FD; color: #1565C0; }
+
     /* ===== SCREENSHOTS ===== */
     .ss-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
     .ss-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xs); transition: box-shadow 0.2s; }
@@ -345,8 +415,16 @@
   <div class="nav__section">Temas</div>
   <a data-screen="dark">Modo oscuro</a>
 
-  <div class="nav__section">Hallazgos</div>
+  <div class="nav__section">Contexto</div>
+  <a data-screen="brand">Origen de marca</a>
+  <a data-screen="timeline">Evolución</a>
+  <a data-screen="comparison">Comparativa</a>
+
+  <div class="nav__section">Análisis</div>
+  <a data-screen="accessibility">Accesibilidad</a>
+  <a data-screen="patterns">Patrones UX</a>
   <a data-screen="issues">Inconsistencias</a>
+  <a data-screen="recommendations">Recomendaciones</a>
   <a data-screen="tokens">Tokens</a>
   <a data-screen="screenshots">Screenshots</a>
 
@@ -361,10 +439,26 @@
       <div class="hero__icon"><svg width="80" height="80" viewBox="0 0 248 248" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52.4285 162.873L98.7844 136.879L99.5485 134.602L98.7844 133.334H96.4921L88.7237 132.862L62.2346 132.153L39.3113 131.207L17.0249 130.026L11.4214 128.844L6.2 121.873L6.7094 118.447L11.4214 115.257L18.171 115.847L33.0711 116.911L55.485 118.447L71.6586 119.392L95.728 121.873H99.5485L100.058 120.337L98.7844 119.392L97.7656 118.447L74.5877 102.732L49.4995 86.1905L36.3823 76.62L29.3779 71.7757L25.8121 67.2858L24.2839 57.3608L30.6515 50.2716L39.3113 50.8623L41.4763 51.4531L50.2636 58.1879L68.9842 72.7209L93.4357 90.6804L97.0015 93.6343L98.4374 92.6652L98.6571 91.9801L97.0015 89.2625L83.757 65.2772L69.621 40.8192L63.2534 30.6579L61.5978 24.632C60.9565 22.1032 60.579 20.0111 60.579 17.4246L67.8381 7.49965L71.9133 6.19995L81.7193 7.49965L85.7946 11.0443L91.9074 24.9865L101.714 46.8451L116.996 76.62L121.453 85.4816L123.873 93.6343L124.764 96.1155H126.292V94.6976L127.566 77.9197L129.858 57.3608L132.15 30.8942L132.915 23.4505L136.608 14.4708L143.994 9.62643L149.725 12.344L154.437 19.0788L153.8 23.4505L150.998 41.6463L145.522 70.1215L141.957 89.2625H143.994L146.414 86.7813L156.093 74.0206L172.266 53.698L179.398 45.6635L187.803 36.802L193.152 32.5484H203.34L210.726 43.6549L207.415 55.1159L196.972 68.3492L188.312 79.5739L175.896 96.2095L168.191 109.585L168.882 110.689L170.738 110.53L198.755 104.504L213.91 101.787L231.994 98.7149L240.144 102.496L241.036 106.395L237.852 114.311L218.495 119.037L195.826 123.645L162.07 131.592L161.696 131.893L162.137 132.547L177.36 133.925L183.855 134.279H199.774L229.447 136.524L237.215 141.605L241.8 147.867L241.036 152.711L229.065 158.737L213.019 154.956L175.45 145.977L162.587 142.787H160.805V143.85L171.502 154.366L191.242 172.089L215.82 195.011L217.094 200.682L213.91 205.172L210.599 204.699L188.949 188.394L180.544 181.069L161.696 165.118H160.422V166.772L164.752 173.152L187.803 207.771L188.949 218.405L187.294 221.832L181.308 223.959L174.813 222.777L161.187 203.754L147.305 182.486L136.098 163.345L134.745 164.2L128.075 235.42L125.019 239.082L117.887 241.8L111.902 237.31L108.718 229.984L111.902 215.452L115.722 196.547L118.779 181.541L121.58 162.873L123.291 156.636L123.14 156.219L121.773 156.449L107.699 175.752L86.304 204.699L69.3663 222.777L65.291 224.431L58.2867 220.768L58.9235 214.27L62.8713 208.48L86.304 178.705L100.44 160.155L109.551 149.507L109.462 147.967L108.959 147.924L46.6977 188.512L35.6182 189.93L30.7788 185.44L31.4156 178.115L33.7079 175.752L52.4285 162.873Z" fill="#D97757"/></svg></div>
       <h1 class="hero__title">Design System Audit</h1>
       <p class="hero__sub">claude.ai — Interfaz web</p>
-      <p class="hero__meta">12 de febrero de 2026 · 12 pantallas · Auditoría automatizada con Playwright</p>
+      <p class="hero__meta">12 de febrero de 2026 · 12 pantallas · Auditoría con Playwright + inspección manual</p>
       <div class="hero__cta">
         <button class="btn btn-primary" onclick="go('colors')">Empezar por colores</button>
       </div>
+    </div>
+
+
+    <div class="metrics-row">
+      <div class="metric"><div class="metric__value">12</div><div class="metric__label">Pantallas</div></div>
+      <div class="metric"><div class="metric__value">7</div><div class="metric__label">Variantes de botón</div></div>
+      <div class="metric"><div class="metric__value">51</div><div class="metric__label">Iconos únicos</div></div>
+      <div class="metric"><div class="metric__value">9</div><div class="metric__label">Tokens de color</div></div>
+      <div class="metric"><div class="metric__value">10</div><div class="metric__label">Espaciados</div></div>
+      <div class="metric"><div class="metric__value">12</div><div class="metric__label">Hallazgos</div></div>
+    </div>
+
+    <div class="method-note">
+      <strong>Metodología:</strong> Auditoría realizada el 12 de febrero de 2026 sobre la versión web de claude.ai (plan gratuito, idioma español, navegador Chrome 144 en macOS). Se capturaron 12 pantallas mediante Playwright con inspección manual complementaria. Se extrajeron todos los design tokens, componentes, iconos y patrones de interacción visibles en la interfaz pública. Los ratios de contraste se calcularon según WCAG 2.1 AA.<br><br>
+      <strong>Alcance:</strong> Pantalla de inicio, sidebar (expandida/colapsada), lista de chats, proyectos (empty state), artefactos, menú de perfil, ajustes (general + cuenta + modo oscuro), planes de upgrade, conversación de chat y categorías de prompts.<br><br>
+      <strong>Limitaciones:</strong> No se auditaron funcionalidades premium (Pro/Max), ni la experiencia móvil nativa (iOS/Android), ni el comportamiento de artefactos en ejecución.
     </div>
   </div>
 
@@ -724,27 +818,414 @@
   <!-- DARK MODE -->
   <div class="screen" id="dark">
     <h2 class="screen__title">Modo oscuro</h2>
-    <p class="screen__desc">Inversión completa de la paleta. Tres opciones: Básica, Auto, Oscuro.</p>
+    <p class="screen__desc">Inversión completa de la paleta. Tres opciones de tema desde Ajustes &gt; General &gt; Apariencia.</p>
+
+    <h3 class="sub-title">Opciones de tema</h3>
+    <table class="audit-table">
+      <thead><tr><th>Opción</th><th>Comportamiento</th><th>Resultado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Básica</strong></td><td>Siempre modo claro</td><td>Fondos crema, textos oscuros</td></tr>
+        <tr><td><strong>Auto</strong></td><td>Sigue <code>prefers-color-scheme</code> del SO</td><td>Cambia dinámicamente</td></tr>
+        <tr><td><strong>Oscuro</strong></td><td>Siempre modo oscuro</td><td>Fondos oscuros, textos claros</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-title">Paleta modo oscuro</h3>
     <div class="dark-box">
-      <h3>Ajustes</h3>
-      <div class="muted">Vista previa del modo oscuro con inversión completa de colores.</div>
+      <h3>Vista previa</h3>
+      <div class="muted">Simulación del modo oscuro con los colores extraídos de la interfaz.</div>
       <div class="dark-card"><div style="font-size:14px;margin-bottom:8px;">Nombre completo</div><input type="text" class="dark-inp" value="Andrea"></div>
       <div class="dark-card"><div style="font-size:14px;margin-bottom:8px;">Preferencias</div><input type="text" class="dark-inp" placeholder="p. ej. explicaciones breves..."></div>
       <button class="dark-btn">Guardar cambios</button>
       <div class="dark-swatches">
-        <div class="dark-sw"><div style="background:#2A2927;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>BG</span></div>
-        <div class="dark-sw"><div style="background:#1F1F1E;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>Card</span></div>
-        <div class="dark-sw"><div style="background:#353432;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>Input</span></div>
-        <div class="dark-sw"><div style="background:#E8E6E0;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>Text</span></div>
-        <div class="dark-sw"><div style="background:#A3A29D;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>Muted</span></div>
+        <div class="dark-sw"><div style="background:#2A2927;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>BG #2A2927</span></div>
+        <div class="dark-sw"><div style="background:#1F1F1E;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>Card #1F1F1E</span></div>
+        <div class="dark-sw"><div style="background:#353432;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>Input #353432</span></div>
+        <div class="dark-sw"><div style="background:#E8E6E0;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>Text #E8E6E0</span></div>
+        <div class="dark-sw"><div style="background:#A3A29D;width:48px;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"></div><span>Muted #A3A29D</span></div>
       </div>
+    </div>
+
+    <h3 class="sub-title">Mapeo de tokens claro → oscuro</h3>
+    <table class="audit-table">
+      <thead><tr><th>Token</th><th>Modo claro</th><th>Modo oscuro</th><th>Estrategia</th></tr></thead>
+      <tbody>
+        <tr><td>bg-primary</td><td><span class="color-dot" style="background:#FAF9F5;border:1px solid #ccc;"></span>#FAF9F5</td><td><span class="color-dot" style="background:#2A2927;"></span>#2A2927</td><td>Inversión tonal</td></tr>
+        <tr><td>bg-surface</td><td><span class="color-dot" style="background:#FFFFFF;border:1px solid #ccc;"></span>#FFFFFF</td><td><span class="color-dot" style="background:#1F1F1E;"></span>#1F1F1E</td><td>Inversión tonal</td></tr>
+        <tr><td>bg-input</td><td><span class="color-dot" style="background:#F0EEE6;border:1px solid #ccc;"></span>#F0EEE6</td><td><span class="color-dot" style="background:#353432;"></span>#353432</td><td>Inversión tonal</td></tr>
+        <tr><td>text-primary</td><td><span class="color-dot" style="background:#141413;"></span>#141413</td><td><span class="color-dot" style="background:#E8E6E0;border:1px solid #ccc;"></span>#E8E6E0</td><td>Inversión tonal</td></tr>
+        <tr><td>text-muted</td><td><span class="color-dot" style="background:#73726C;"></span>#73726C</td><td><span class="color-dot" style="background:#A3A29D;border:1px solid #555;"></span>#A3A29D</td><td>Aclarado proporcional</td></tr>
+        <tr><td>accent</td><td><span class="color-dot" style="background:#2C84DB;"></span>#2C84DB</td><td><span class="color-dot" style="background:#2C84DB;"></span>#2C84DB</td><td>Sin cambio (invariante)</td></tr>
+        <tr><td>brand-terracotta</td><td><span class="color-dot" style="background:#C4622D;"></span>#C4622D</td><td><span class="color-dot" style="background:#D97757;"></span>#D97757</td><td>Aclarado para contraste</td></tr>
+      </tbody>
+    </table>
+
+    <div class="audit-note">
+      <strong>Evaluación:</strong> El modo oscuro es una inversión tonal completa y consistente. Los tonos de gris mantienen el carácter cálido del tema claro. El color de acento azul se mantiene invariante, mientras que el terracota de marca se aclara para preservar el contraste. El mapeo automático vía CSS custom properties permite una transición limpia sin duplicar estilos.
+    </div>
+  </div>
+
+  <!-- BRAND -->
+  <div class="screen" id="brand">
+    <h2 class="screen__title">Origen de marca</h2>
+    <p class="screen__desc">La identidad visual de claude.ai fue diseñada por el estudio Geist (Portland) y ha evolucionado para diferenciarse en el competitivo mercado de IA conversacional.</p>
+
+    <div class="brand-card">
+      <div class="brand-card__label">Estudio de diseño</div>
+      <div class="brand-card__title">Geist (geist.co) — Portland, OR</div>
+      <div class="brand-card__text">
+        Geist desarrolló toda la identidad visual de Anthropic, incluyendo:<br>
+        &bull; El logotipo tipográfico con la barra diagonal distintiva (ANTHROP\C) — referencia al código<br>
+        &bull; La paleta tipográfica Styrene (Commercial Type) + Tiempos (Klim Type Foundry) para marketing corporativo<br>
+        &bull; El sistema de color cálido que equilibra comunicación de marca y UI de producto<br>
+        &bull; El lenguaje de ilustración centrado en valores humanos<br>
+        &bull; La filosofía general de "hacer lo simple que funciona"
+      </div>
+    </div>
+
+    <div class="brand-card">
+      <div class="brand-card__label">Tipografía de producto vs. marketing</div>
+      <div class="brand-card__title">Fuentes propietarias para el producto</div>
+      <div class="brand-card__text">
+        El producto (claude.ai) usa fuentes custom diferentes a las de marketing:<br><br>
+        <strong>Producto:</strong> <code>anthropicSans</code> (variable font, peso 430) y <code>anthropicSerif</code> para respuestas de Claude<br>
+        <strong>Marketing:</strong> Styrene (Commercial Type) + Tiempos (Klim Type Foundry)<br><br>
+        Stack de fallback completo:<br>
+        <code>anthropicSans, "anthropicSans Fallback", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif</code>
+      </div>
+    </div>
+
+    <div class="brand-card">
+      <div class="brand-card__label">Filosofía de diseño</div>
+      <div class="brand-card__title">Calidez como diferenciador</div>
+      <div class="brand-card__text">
+        El fondo crema <code>#FAF9F5</code> es único en el espacio de IA — ChatGPT usa blanco neutro y Gemini sigue Material Design de Google. Múltiples análisis de diseño señalan que la estética de Claude "invita a la conversación" de forma más personal que las interfaces blancas de sus competidores.<br><br>
+        <strong>Tensión señalada:</strong> Un artículo de Dia Lohg en Medium (mayo 2025) analiza la tensión entre la misión seria de seguridad de Anthropic y el look "playful" y pastel de Claude, recomendando moverse hacia "claridad, contención y confianza tranquila".<br><br>
+        <strong>Reconocimiento:</strong> La comunidad ha creado temas como el <em>shadcn/ui Claude Theme</em> que replican la estética terracota-crema, demostrando que el lenguaje de diseño es suficientemente distintivo para ser reconocido y replicado.
+      </div>
+    </div>
+
+    <h3 class="sub-title">Paleta de marca oficial Anthropic</h3>
+    <div class="color-grid">
+      <div class="color-card"><div class="color-card__swatch" style="background:#141413;color:#fff;">Aa</div><div class="color-card__info"><div class="color-card__name">Dark</div><div class="color-card__value">#141413</div><div class="color-card__usage">Texto, CTAs</div></div></div>
+      <div class="color-card"><div class="color-card__swatch" style="background:#FAF9F5;color:#73726C;">Aa</div><div class="color-card__info"><div class="color-card__name">Light</div><div class="color-card__value">#FAF9F5</div><div class="color-card__usage">Fondo principal</div></div></div>
+      <div class="color-card"><div class="color-card__swatch" style="background:#B0AEA5;color:#fff;">Aa</div><div class="color-card__info"><div class="color-card__name">Mid Gray</div><div class="color-card__value">#B0AEA5</div><div class="color-card__usage">Bordes, detalles</div></div></div>
+      <div class="color-card"><div class="color-card__swatch" style="background:#E8E6DC;color:#73726C;">Aa</div><div class="color-card__info"><div class="color-card__name">Light Gray</div><div class="color-card__value">#E8E6DC</div><div class="color-card__usage">Fondos secundarios</div></div></div>
+      <div class="color-card"><div class="color-card__swatch" style="background:#D97757;color:#fff;">Aa</div><div class="color-card__info"><div class="color-card__name">Orange (Terracota)</div><div class="color-card__value">#D97757</div><div class="color-card__usage">Logo, acento de marca</div></div></div>
+      <div class="color-card"><div class="color-card__swatch" style="background:#6A9BCC;color:#fff;">Aa</div><div class="color-card__info"><div class="color-card__name">Blue</div><div class="color-card__value">#6A9BCC</div><div class="color-card__usage">Marca (no en UI)</div></div></div>
+      <div class="color-card"><div class="color-card__swatch" style="background:#788C5D;color:#fff;">Aa</div><div class="color-card__info"><div class="color-card__name">Green</div><div class="color-card__value">#788C5D</div><div class="color-card__usage">Marca (no en UI)</div></div></div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="screen" id="timeline">
+    <h2 class="screen__title">Evolución del diseño</h2>
+    <p class="screen__desc">Línea temporal de cambios significativos en la interfaz de claude.ai desde 2024.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Mediados 2024</div>
+        <div class="tl-title">Lanzamiento de Projects y Artifacts</div>
+        <div class="tl-desc">Introducción de carpetas de workspace (Projects) para organizar chats con documentos de referencia, y panel lateral de Artifacts para vista previa en vivo de contenido generado (código, visualizaciones, documentos).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2025</div>
+        <div class="tl-title">Galería de Artifacts</div>
+        <div class="tl-desc">Nueva página dedicada con tabs "Inspiración" / "Tus artefactos" y filtros por categoría (Todo, Aprende algo, Trucos y consejos, etc.). Grid de thumbnails con previews visuales.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2025</div>
+        <div class="tl-title">Plan Max y sección Código</div>
+        <div class="tl-desc">Introducción del tier Max (5x y 20x capacidad) junto a Free y Pro. Nueva sección "Código" en el sidebar de navegación.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Finales 2025</div>
+        <div class="tl-title">Ajustes de tono y longitud</div>
+        <div class="tl-desc">Nuevas opciones de personalización: "Tone and Length" para conversaciones. 5 voces de Claude: Buttery, Airy, Mellow, Glassy, Rounded.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Noviembre 2025</div>
+        <div class="tl-title">Opus 4.5</div>
+        <div class="tl-desc">Lanzamiento del modelo Opus 4.5 con selector de modelo inline en el input de chat.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Enero 2026</div>
+        <div class="tl-title">Claude Cowork</div>
+        <div class="tl-desc">Interfaz gráfica para usuarios no técnicos, lanzada como research preview. Nuevo paradigma de interacción colaborativa.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Enero 2026</div>
+        <div class="tl-title">Infinite Chats</div>
+        <div class="tl-desc">Eliminación del límite de ventana de contexto. Los chats ya no muestran errores de "contexto agotado".</div>
+      </div>
+      <div class="tl-item tl-item--current">
+        <div class="tl-date">Febrero 2026</div>
+        <div class="tl-title">Opus 4.6 + esta auditoría</div>
+        <div class="tl-desc">Lanzamiento de Opus 4.6 con equipos de agentes. Claude Code obtiene portal web. Se realiza esta auditoría del sistema de diseño sobre 12 pantallas.</div>
+      </div>
+    </div>
+
+    <div class="audit-note">
+      <strong>Tendencia observada:</strong> La interfaz ha evolucionado de un chat simple a una plataforma multi-herramienta (Projects, Artifacts, Código, Cowork) manteniendo la coherencia visual. Cada nueva funcionalidad ha adoptado los mismos tokens de diseño, lo que demuestra la solidez del sistema base.
+    </div>
+  </div>
+
+  <!-- COMPARISON -->
+  <div class="screen" id="comparison">
+    <h2 class="screen__title">Comparativa con competidores</h2>
+    <p class="screen__desc">Análisis comparativo del sistema de diseño de Claude frente a ChatGPT (OpenAI) y Gemini (Google).</p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Aspecto</th>
+          <th><span class="comp-badge comp-badge--claude">Claude</span></th>
+          <th><span class="comp-badge comp-badge--chatgpt">ChatGPT</span></th>
+          <th><span class="comp-badge comp-badge--gemini">Gemini</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tono visual</strong></td>
+          <td>Cálido, crema/terracota. "Conversación, no base de datos"</td>
+          <td>Limpio, blanco/gris neutro. Más corporativo</td>
+          <td>Material Design de Google. Colorido, sistemático</td>
+        </tr>
+        <tr>
+          <td><strong>Tipografía</strong></td>
+          <td>Fuentes variable custom (<code>anthropicSans</code> / <code>anthropicSerif</code>)</td>
+          <td>System / sans-serif estándar</td>
+          <td>Google Sans</td>
+        </tr>
+        <tr>
+          <td><strong>Paleta</strong></td>
+          <td>Restringida y cálida (4 bg + 4 text + 2 acento)</td>
+          <td>Negro/blanco/verde acento</td>
+          <td>Multi-color Google</td>
+        </tr>
+        <tr>
+          <td><strong>Diferenciador</strong></td>
+          <td>Fondo crema <code>#FAF9F5</code> — único en el sector</td>
+          <td>Canvas / GPT Store</td>
+          <td>Integración ecosistema Google</td>
+        </tr>
+        <tr>
+          <td><strong>Sidebar</strong></td>
+          <td>Colapsable, Projects + Artifacts</td>
+          <td>Similar colapsable, GPTs / Canvas</td>
+          <td>Gems (plantillas), sidebar ligero</td>
+        </tr>
+        <tr>
+          <td><strong>Burbujas de chat</strong></td>
+          <td>Usuario: pill oscura derecha. IA: texto serif sin fondo</td>
+          <td>Usuario: gris. IA: texto plano</td>
+          <td>Usuario: gris. IA: texto con markdown</td>
+        </tr>
+        <tr>
+          <td><strong>Personalización</strong></td>
+          <td>4 fuentes, 3 temas, 5 voces, fuente dislexia</td>
+          <td>Modo oscuro, GPTs custom</td>
+          <td>Gems, temas limitados</td>
+        </tr>
+        <tr>
+          <td><strong>Animación</strong></td>
+          <td>Ultra-contenida. Asterisco terracota animado como loading</td>
+          <td>Typing indicator, transiciones suaves</td>
+          <td>Material Motion, más elaboradas</td>
+        </tr>
+        <tr>
+          <td><strong>Funciones únicas</strong></td>
+          <td>Artifacts live preview, Projects, opciones accesibilidad</td>
+          <td>Canvas para documentos, GPT Store</td>
+          <td>Gems (chatbots custom), deep linking Google</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-title">Posicionamiento visual</h3>
+    <div class="pattern-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="pattern-card" style="border-left: 4px solid #C4622D;">
+        <div class="pattern-card__title">Claude</div>
+        <div class="pattern-card__desc">La mayor calidez y personalidad del sector. Paleta minimal pero distintiva. Tipografía custom serif/sans como diferenciador. Diseño que "invita a conversar".</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Más distintivo</span>
+      </div>
+      <div class="pattern-card" style="border-left: 4px solid #10A37F;">
+        <div class="pattern-card__title">ChatGPT</div>
+        <div class="pattern-card__desc">Profesional pero más genérico. Interfaz blanca neutra. Diferenciación por ecosistema (GPT Store, Canvas) más que por estética visual.</div>
+        <span class="pattern-card__tag pattern-card__tag--ok">Más funcional</span>
+      </div>
+      <div class="pattern-card" style="border-left: 4px solid #4285F4;">
+        <div class="pattern-card__title">Gemini</div>
+        <div class="pattern-card__desc">Hereda el look sistemático de Google. Material Design 3 da coherencia pero menos personalidad propia. Integración con ecosistema Google como ventaja principal.</div>
+        <span class="pattern-card__tag pattern-card__tag--ok">Más integrado</span>
+      </div>
+    </div>
+
+    <div class="audit-note">
+      <strong>Conclusión:</strong> Claude tiene el sistema de diseño más distintivo y coherente de los tres principales chatbots de IA. Su paleta cálida, tipografía custom y atención a la accesibilidad (fuente dislexia, múltiples voces) lo posicionan como el más "humano" en su estética. ChatGPT compite por funcionalidad (ecosistema GPT) y Gemini por integración (Google Workspace). En diseño puro, Claude lidera.
+    </div>
+  </div>
+
+  <!-- ACCESSIBILITY -->
+  <div class="screen" id="accessibility">
+    <h2 class="screen__title">Accesibilidad</h2>
+    <p class="screen__desc">Evaluación de accesibilidad (WCAG 2.1) basada en las 13 pantallas capturadas.</p>
+
+    <h3 class="sub-title">Contraste de colores</h3>
+    <table class="audit-table">
+      <thead><tr><th>Combinación</th><th>Ratio</th><th>WCAG AA</th><th>Contexto</th></tr></thead>
+      <tbody>
+        <tr><td><span class="color-dot" style="background:#141413;"></span>#141413 sobre <span class="color-dot" style="background:#FAF9F5;"></span>#FAF9F5</td><td><strong>17.6:1</strong></td><td><span class="badge badge--pass">Pass</span></td><td>Texto principal sobre fondo</td></tr>
+        <tr><td><span class="color-dot" style="background:#3D3D3A;"></span>#3D3D3A sobre <span class="color-dot" style="background:#FAF9F5;"></span>#FAF9F5</td><td><strong>9.1:1</strong></td><td><span class="badge badge--pass">Pass</span></td><td>Texto secundario</td></tr>
+        <tr><td><span class="color-dot" style="background:#73726C;"></span>#73726C sobre <span class="color-dot" style="background:#FAF9F5;"></span>#FAF9F5</td><td><strong>4.3:1</strong></td><td><span class="badge badge--warn">Fail (AA small)</span></td><td>Labels, placeholders, captions 12px</td></tr>
+        <tr><td><span class="color-dot" style="background:#FFFFFF;"></span>#FFF sobre <span class="color-dot" style="background:#141413;"></span>#141413</td><td><strong>17.6:1</strong></td><td><span class="badge badge--pass">Pass</span></td><td>Texto botones CTA</td></tr>
+        <tr><td><span class="color-dot" style="background:#2C84DB;"></span>#2C84DB sobre <span class="color-dot" style="background:#FAF9F5;"></span>#FAF9F5</td><td><strong>3.8:1</strong></td><td><span class="badge badge--warn">Fail (AA small)</span></td><td>Links sobre fondo crema</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-title">ARIA y semántica</h3>
+    <table class="audit-table">
+      <thead><tr><th>Criterio</th><th>Estado</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td>Roles ARIA</td><td><span class="badge badge--pass">Pass</span></td><td><code>navigation</code>, <code>main</code>, <code>tablist</code>, <code>tab</code>, <code>tabpanel</code>, <code>listbox</code>, <code>option</code>, <code>menu</code>, <code>menuitem</code>, <code>switch</code>, <code>alert</code>, <code>status</code>, <code>region</code></td></tr>
+        <tr><td>Labels descriptivos</td><td><span class="badge badge--pass">Pass</span></td><td>Sidebar: <code>aria-label="Barra lateral"</code>, Notificaciones: <code>aria-label="Notificaciones (F8)"</code></td></tr>
+        <tr><td>Atajos de teclado</td><td><span class="badge badge--pass">Pass</span></td><td>Documentados visualmente (<code>Ctrl+Shift+O</code>, <code>Shift+Cmd+,</code>)</td></tr>
+        <tr><td>Iconos decorativos</td><td><span class="badge badge--pass">Pass</span></td><td><code>aria-hidden="true"</code> en todos los iconos SVG decorativos</td></tr>
+        <tr><td>Focus visible</td><td><span class="badge badge--warn">Warning</span></td><td>Depende del outline azul nativo del navegador. Sin focus ring personalizado.</td></tr>
+        <tr><td>Alt text en imágenes</td><td><span class="badge badge--warn">Warning</span></td><td>Artefactos de inspiración usan imágenes sin alt text descriptivo suficiente</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-title">Opciones de accesibilidad integradas</h3>
+    <div class="audit-note">
+      Claude ofrece <strong>4 opciones de fuente</strong> desde Ajustes &gt; General:<br>
+      &bull; <strong>Predeterminada</strong> — anthropicSans (sans-serif propietaria)<br>
+      &bull; <strong>Serif</strong> — anthropicSerif (serif propietaria)<br>
+      &bull; <strong>Sistema</strong> — system-ui, sans-serif<br>
+      &bull; <strong>Dislexia</strong> — OpenDyslexic, Comic Sans MS, ui-serif<br><br>
+      Incluye <strong>modo oscuro</strong> con tres opciones (Básica, Auto, Oscuro) y disclaimer visible: "Claude es IA y puede cometer errores."
+    </div>
+
+    <h3 class="sub-title">Evaluación global de accesibilidad</h3>
+    <div class="score-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="score-card"><div class="score-card__grade score-card__grade--a">A</div><div class="score-card__label">ARIA y semántica</div><div class="score-card__detail">13 roles, labels completos</div></div>
+      <div class="score-card"><div class="score-card__grade score-card__grade--b">B</div><div class="score-card__label">Contraste</div><div class="score-card__detail">3/5 combinaciones pass</div></div>
+      <div class="score-card"><div class="score-card__grade score-card__grade--a">A</div><div class="score-card__label">Personalización</div><div class="score-card__detail">4 fuentes, 3 temas, 5 voces</div></div>
+    </div>
+
+    <div class="audit-note">
+      <strong>Resultado:</strong> Claude destaca en accesibilidad estructural (ARIA, semántica, atajos) y en opciones de personalización (especialmente la fuente para dislexia). Los dos puntos débiles son el contraste insuficiente del texto terciario y enlaces azules en tamaños pequeños, y la ausencia de focus ring personalizado. Ambos son fácilmente corregibles con cambios CSS mínimos.
+    </div>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="screen" id="patterns">
+    <h2 class="screen__title">Patrones de interacción</h2>
+    <p class="screen__desc">Análisis de los patrones UX recurrentes observados en las 12 pantallas auditadas de claude.ai.</p>
+
+    <h3 class="sub-title">Navegación y estructura</h3>
+    <div class="pattern-grid">
+      <div class="pattern-card">
+        <div class="pattern-card__icon">☰</div>
+        <div class="pattern-card__title">Sidebar colapsable</div>
+        <div class="pattern-card__desc">Sidebar izquierdo que alterna entre icono y panel completo. Muestra chats recientes, proyectos y acceso a artefactos. Se colapsa automáticamente en viewports estrechos.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">🔍</div>
+        <div class="pattern-card__title">Búsqueda contextual</div>
+        <div class="pattern-card__desc">Campo de búsqueda dentro del sidebar para filtrar chats. Placeholder "Buscar chats…" con icono de lupa. No hay búsqueda global visible.</div>
+        <span class="pattern-card__tag pattern-card__tag--ok">Mejorable</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">📋</div>
+        <div class="pattern-card__title">Tabs de categorías</div>
+        <div class="pattern-card__desc">Chips horizontales scrolleables en la pantalla de inicio: Crear, Aprender, Código, Escribir, Asuntos personales. Cada uno despliega sugerencias de prompts.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">⚙️</div>
+        <div class="pattern-card__title">Menú de perfil</div>
+        <div class="pattern-card__desc">Dropdown con shortcuts de teclado visibles (⌘,  ⇧⌘A). Acceso rápido a ajustes, descargas y cierre de sesión. Muestra nombre y email del usuario.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Patrones de chat</h3>
+    <div class="pattern-grid">
+      <div class="pattern-card">
+        <div class="pattern-card__icon">💬</div>
+        <div class="pattern-card__title">Input de conversación</div>
+        <div class="pattern-card__desc">Textarea multiline con placeholder dinámico, botones de adjuntar archivo y enviar. El botón de envío se activa solo cuando hay contenido. Borde redondeado con focus ring azul.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">🔄</div>
+        <div class="pattern-card__title">Acciones de respuesta</div>
+        <div class="pattern-card__desc">Cada respuesta de Claude incluye botones ghost: copiar, reintentar y feedback (pulgar arriba/abajo). Aparecen al final de cada bloque de respuesta.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">📝</div>
+        <div class="pattern-card__title">Tipografía diferenciada</div>
+        <div class="pattern-card__desc">Las respuestas de Claude usan fuente serif (anthropicSerif) mientras que la UI y los mensajes del usuario usan sans-serif (anthropicSans). Diferenciación visual clara entre IA y humano.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">🎨</div>
+        <div class="pattern-card__title">Artefactos</div>
+        <div class="pattern-card__desc">Panel lateral para código, visualizaciones y documentos generados por Claude. Página dedicada con tabs (Inspiración / Tus artefactos) y filtros por categoría.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Patrones de configuración</h3>
+    <div class="pattern-grid">
+      <div class="pattern-card">
+        <div class="pattern-card__icon">🎨</div>
+        <div class="pattern-card__title">Personalización de apariencia</div>
+        <div class="pattern-card__desc">Tres modos de color (Básica/Auto/Oscuro), cuatro opciones de tipografía (incluyendo dislexia) y cinco voces de Claude (Buttery, Airy, Mellow, Glassy, Rounded).</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">⚠️</div>
+        <div class="pattern-card__title">Acción destructiva</div>
+        <div class="pattern-card__desc">"Eliminar cuenta" usa el mismo estilo visual que el CTA positivo (botón oscuro, sin color rojo ni confirmación extra visible). Patrón problemático para acciones irreversibles.</div>
+        <span class="pattern-card__tag pattern-card__tag--missing">Problema detectado</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">💳</div>
+        <div class="pattern-card__title">Upgrade / Pricing</div>
+        <div class="pattern-card__desc">Cards de planes (Free/Pro/Max) con toggle Individual/Equipo. Jerarquía visual clara: plan Pro destacado con sombra azul especial. Precios mensuales con comparativa de features.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-card__icon">🗂️</div>
+        <div class="pattern-card__title">Empty states</div>
+        <div class="pattern-card__desc">La pantalla de Proyectos vacía muestra ilustración centrada con texto descriptivo y CTA claro. Patrón consistente con el diseño general de la app.</div>
+        <span class="pattern-card__tag pattern-card__tag--good">Bien implementado</span>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Resumen de patrones</h3>
+    <div class="audit-note">
+      De los <strong>12 patrones evaluados</strong>, <strong>10 están bien implementados</strong>, <strong>1 es mejorable</strong> (búsqueda limitada a sidebar) y <strong>1 presenta un problema</strong> (botón destructivo sin diferenciación visual).<br><br>
+      Los patrones de Claude siguen convenciones modernas de apps de chat con IA: input multiline centrado, sidebar colapsable, respuestas diferenciadas tipográficamente, y acciones contextuales por mensaje. La personalización de apariencia es notablemente completa para este tipo de producto.
     </div>
   </div>
 
   <!-- ISSUES -->
   <div class="screen" id="issues">
     <h2 class="screen__title">Inconsistencias detectadas</h2>
-    <p class="screen__desc">Ninguna es crítica, pero resolverlas mejoraría la coherencia del sistema.</p>
+    <p class="screen__desc">12 hallazgos totales: 3 warnings de accesibilidad, 5 informativas de consistencia y 4 puntos positivos. Ninguna es crítica.</p>
+
+    <div class="metrics-row" style="margin-bottom:32px;">
+      <div class="metric"><div class="metric__value" style="color:var(--danger);">3</div><div class="metric__label">Warnings</div></div>
+      <div class="metric"><div class="metric__value" style="color:var(--accent);">5</div><div class="metric__label">Informativas</div></div>
+      <div class="metric"><div class="metric__value" style="color:#4a9e5f;">4</div><div class="metric__label">Positivos</div></div>
+      <div class="metric"><div class="metric__value">0</div><div class="metric__label">Críticos</div></div>
+    </div>
+
     <table class="issues-tbl">
       <thead><tr><th>Severidad</th><th>Hallazgo</th><th>Detalle</th><th>Recomendación</th></tr></thead>
       <tbody>
@@ -754,12 +1235,105 @@
         <tr><td><span class="badge badge--info">Info</span></td><td>Font-weight 430</td><td>Peso no estándar, requiere variable fonts</td><td>Fallback explícito</td></tr>
         <tr><td><span class="badge badge--info">Info</span></td><td>Sombras azules aisladas</td><td>Solo en card Pro de upgrade</td><td>Sistematizar o eliminar</td></tr>
         <tr><td><span class="badge badge--info">Info</span></td><td>Botones ghost sin padding</td><td>Padding 0px, dependen del layout padre</td><td>Padding propio</td></tr>
+        <tr><td><span class="badge badge--info">Info</span></td><td>Pantalla Cloudflare</td><td>Fondo #FFF rompe con crema #FAF9F5 de la app</td><td>Personalizar tema Turnstile</td></tr>
+        <tr><td><span class="badge badge--warn">Warning</span></td><td>Contraste links azules</td><td>#2C84DB sobre #FAF9F5 = ~3.8:1, falla AA small text</td><td>Oscurecer a #1B67B2</td></tr>
         <tr><td><span class="badge badge--pass">Pass</span></td><td>Roles ARIA</td><td>Uso correcto en toda la app</td><td>Mantener</td></tr>
         <tr><td><span class="badge badge--pass">Pass</span></td><td>Paleta cohesiva</td><td>4 fondos + 4 textos en toda la app</td><td>Mantener</td></tr>
         <tr><td><span class="badge badge--pass">Pass</span></td><td>Accesibilidad tipográfica</td><td>4 opciones de fuente incluyendo dislexia</td><td>Mantener</td></tr>
         <tr><td><span class="badge badge--pass">Pass</span></td><td>i18n completo</td><td>Interfaz totalmente traducida</td><td>Mantener</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- RECOMMENDATIONS -->
+  <div class="screen" id="recommendations">
+    <h2 class="screen__title">Recomendaciones</h2>
+    <p class="screen__desc">Acciones priorizadas para mejorar el sistema de diseño, ordenadas por impacto y esfuerzo.</p>
+
+    <h3 class="sub-title">Prioridad alta</h3>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--high">Alta</span>
+        <div class="rec-card__title">Crear variante de botón destructivo</div>
+        <div class="rec-card__desc">El botón "Eliminar cuenta" utiliza el mismo estilo que el CTA principal positivo. Crear una variante con fondo <code>var(--danger)</code> (#D4432F), texto blanco y posiblemente un icono de advertencia. Aplicar a todas las acciones irreversibles.</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Alto</div>
+      </div>
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--high">Alta</span>
+        <div class="rec-card__title">Mejorar contraste del texto terciario</div>
+        <div class="rec-card__desc">El color <code>#73726C</code> sobre <code>#FAF9F5</code> tiene un ratio de ~4.2:1. Para texto de 12px (body small), WCAG AA requiere 4.5:1. Oscurecer a <code>#5C5B56</code> o <code>#666</code> para garantizar cumplimiento en todos los tamaños.</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Alto</div>
+      </div>
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--high">Alta</span>
+        <div class="rec-card__title">Oscurecer enlaces azules</div>
+        <div class="rec-card__desc">El <code>#2C84DB</code> sobre <code>#FAF9F5</code> da ~3.8:1, insuficiente para WCAG AA en texto pequeño. Usar <code>var(--accent-dark)</code> (#1B67B2, ~5.2:1) como color base de enlace en lugar de <code>var(--accent)</code>.</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Alto</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Prioridad media</h3>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--medium">Media</span>
+        <div class="rec-card__title">Añadir focus ring personalizado</div>
+        <div class="rec-card__desc">La app depende del outline azul nativo del navegador para indicar focus. Implementar un focus ring consistente con <code>box-shadow: 0 0 0 3px var(--border-focus)</code> para mejor visibilidad y coherencia entre navegadores.</div>
+        <div class="rec-effort">Esfuerzo: Medio · Impacto: Medio</div>
+      </div>
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--medium">Media</span>
+        <div class="rec-card__title">Consolidar border-radius a 5 tokens</div>
+        <div class="rec-card__desc">Actualmente se usan 6 valores (6, 8, 10, 12, 16, 9999px). Eliminar el valor de 10px (usarlo solo como interpolación) y documentar el uso de cada token: sm=6, md=8, lg=12, xl=16, full=9999.</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Medio</div>
+      </div>
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--medium">Media</span>
+        <div class="rec-card__title">Añadir padding a botones ghost</div>
+        <div class="rec-card__desc">Los botones ghost (iconos de copiar, reintentar, feedback) tienen <code>padding: 0</code> y dependen del layout padre. Añadir un mínimo de <code>padding: 8px</code> para mejorar el área de toque (recomendado 44×44px según WCAG).</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Medio</div>
+      </div>
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--medium">Media</span>
+        <div class="rec-card__title">Documentar font-weight 430</div>
+        <div class="rec-card__desc">El peso 430 no es estándar y requiere variable fonts. Añadir un fallback explícito a 400 o 500 en la declaración <code>@font-face</code> para navegadores que no soporten pesos variables.</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Medio</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Prioridad baja</h3>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--low">Baja</span>
+        <div class="rec-card__title">Sistematizar sombra azul</div>
+        <div class="rec-card__desc">La sombra <code>var(--shadow-accent)</code> solo se usa en la card Pro de la pantalla de upgrade. Decidir si es un token global del sistema (para elementos destacados) o eliminarla en favor de sombras estándar.</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Bajo</div>
+      </div>
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--low">Baja</span>
+        <div class="rec-card__title">Añadir alt text a artefactos de inspiración</div>
+        <div class="rec-card__desc">Las imágenes de la galería de artefactos de inspiración carecen de alt text descriptivo. Añadir descripciones breves que indiquen el tipo de artefacto y su contenido visual.</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Bajo</div>
+      </div>
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--low">Baja</span>
+        <div class="rec-card__title">Ampliar búsqueda a global</div>
+        <div class="rec-card__desc">La búsqueda actual solo filtra chats en el sidebar. Considerar una búsqueda global (⌘K) que incluya chats, proyectos, artefactos y ajustes para mejorar la navegación.</div>
+        <div class="rec-effort">Esfuerzo: Alto · Impacto: Medio</div>
+      </div>
+      <div class="rec-card">
+        <span class="rec-priority rec-priority--low">Baja</span>
+        <div class="rec-card__title">Personalizar tema Cloudflare Turnstile</div>
+        <div class="rec-card__desc">La pantalla de verificación Cloudflare usa fondo <code>#FFF</code> puro, rompiendo con el crema <code>#FAF9F5</code> de la app. Cloudflare Turnstile permite personalización de tema para mantener consistencia visual.</div>
+        <div class="rec-effort">Esfuerzo: Bajo · Impacto: Bajo</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Resumen de esfuerzo</h3>
+    <div class="audit-note">
+      <strong>11 recomendaciones totales:</strong> 3 de alta prioridad, 4 de media y 4 de baja.<br><br>
+      <strong>8 de 11 son de esfuerzo bajo</strong> — cambios de CSS o atributos HTML que pueden implementarse en pocas horas.<br><br>
+      Las 3 recomendaciones de alta prioridad (botón destructivo, contraste terciario y enlaces) son todas de esfuerzo bajo y alto impacto, por lo que deberían implementarse primero. Juntas resolverían los principales hallazgos de accesibilidad y seguridad UX de la auditoría.
+    </div>
   </div>
 
   <!-- TOKENS -->
@@ -800,7 +1374,7 @@
   <!-- SCREENSHOTS -->
   <div class="screen" id="screenshots">
     <h2 class="screen__title">Screenshots capturados</h2>
-    <p class="screen__desc">12 pantallas auditadas con Playwright.</p>
+    <p class="screen__desc">13 pantallas auditadas con Playwright.</p>
     <div class="ss-grid">
       <div class="ss-card"><img src="01-home-new-chat.png" alt="Home"><div class="ss-card__info"><div class="ss-card__title">Home / Nueva conversación</div><div class="ss-card__desc">Sidebar colapsada, saludo, input</div></div></div>
       <div class="ss-card"><img src="02-sidebar-expanded.png" alt="Sidebar"><div class="ss-card__info"><div class="ss-card__title">Sidebar expandida</div><div class="ss-card__desc">Navegación completa</div></div></div>
@@ -814,6 +1388,7 @@
       <div class="ss-card"><img src="10-upgrade-plans.png" alt="Planes"><div class="ss-card__info"><div class="ss-card__title">Upgrade / Planes</div><div class="ss-card__desc">Cards de pricing</div></div></div>
       <div class="ss-card"><img src="11-chat-conversation.png" alt="Chat"><div class="ss-card__info"><div class="ss-card__title">Conversación</div><div class="ss-card__desc">Mensajes, acciones, input</div></div></div>
       <div class="ss-card"><img src="12-prompt-category-crear.png" alt="Prompts"><div class="ss-card__info"><div class="ss-card__title">Categoría de prompts</div><div class="ss-card__desc">Panel de sugerencias</div></div></div>
+      <div class="ss-card"><img src="13-login.png" alt="Verificación Cloudflare"><div class="ss-card__info"><div class="ss-card__title">Verificación de seguridad</div><div class="ss-card__desc">Cloudflare challenge anti-bot</div></div></div>
     </div>
   </div>
 
