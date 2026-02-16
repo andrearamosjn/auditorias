@@ -1,8 +1,9 @@
 # Auditoría de Sistema de Diseño — claude.ai
 
-**Fecha:** 12 de febrero de 2026
+**Fecha:** 12–16 de febrero de 2026
 **Auditor:** Claude (automatizado vía Playwright)
 **Versión analizada:** claude.ai (web app, plan gratuito)
+**Última actualización:** 16 de febrero de 2026
 
 ---
 
@@ -23,6 +24,15 @@
 | 11 | Conversación de chat | `11-chat-conversation.png` |
 | 12 | Categoría de prompts (Crear) | `12-prompt-category-crear.png` |
 | 13 | Verificación de seguridad (Cloudflare) | `13-login.png` |
+| 14 | Chat con bloque de código (syntax highlighting) | `14-chat-code-block.png` |
+| 15 | Selector de modelo (dropdown) | `15-model-selector.png` |
+| 16 | Menú de adjuntos / upload | `16-attachment-menu.png` |
+| 17 | Modal de confirmación (eliminar chat) | `17-delete-confirmation-modal.png` |
+| 18 | Sidebar con hover states | `18-sidebar-hover-states.png` |
+| 19 | Categoría de prompts (Código) | `19-prompt-category-codigo.png` |
+| 20 | Modal de búsqueda (Cmd+K) | `20-search-modal.png` |
+| 21 | Menú contextual de chat (3 puntos) | `17-chat-context-menu.png` |
+| 22 | Dialog promocional (Cowork) | `19-cowork-promo-dialog.png` |
 
 ---
 
@@ -300,68 +310,299 @@ Esta es la primera pantalla que ve cualquier usuario al acceder a claude.ai. Es 
 
 ---
 
-## 11. Resumen de Tokens de Diseño
+## 11. Arquitectura de Tokens de Diseño (3 Niveles)
 
-```
-COLORES
-  --color-bg-primary:      #FAF9F5
-  --color-bg-secondary:    #F0EEE6
-  --color-bg-surface:      #FFFFFF
-  --color-bg-inverse:      #141413
-  --color-text-primary:    #141413
-  --color-text-secondary:  #3D3D3A
-  --color-text-tertiary:   #73726C
-  --color-text-inverse:    #FFFFFF
-  --color-accent:          #2C84DB
-  --color-accent-dark:     #1B67B2
-  --color-brand:           terracota (icono asterisco)
-  --color-border-light:    rgba(31,30,29, 0.15)
-  --color-border-medium:   rgba(31,30,29, 0.30)
-  --color-border-focus:    rgba(44,132,219, 0.40)
+Claude.ai utiliza un conjunto de design tokens que se pueden estructurar en 3 niveles siguiendo el patrón de sistemas como Material Design 3 (ref/sys/comp), Spectrum de Adobe y Primer de GitHub.
 
-TIPOGRAFÍA
-  --font-ui:               anthropicSans
-  --font-serif:            anthropicSerif
-  --font-mono:             JetBrains Mono
-  --font-dyslexia:         OpenDyslexic
-  --font-size-xs:          12px
-  --font-size-sm:          14px
-  --font-size-base:        16px
-  --font-size-lg:          20px
-  --font-size-xl:          24px
-  --font-size-2xl:         30px
-  --font-size-3xl:         36-40px
+### Tier 1 — Global (Primitivos)
 
-ESPACIADO
-  --space-1:  4px
-  --space-2:  8px
-  --space-3:  10px
-  --space-4:  16px
-  --space-6:  24px
-  --space-8:  32px
+Valores crudos sin contexto semántico. Naming: `--claude-[category]-[value]`.
 
-RADII
-  --radius-sm:    6px
-  --radius-md:    8px
-  --radius-lg:    12px
-  --radius-xl:    16px
-  --radius-full:  9999px
+#### Colores
 
-SOMBRAS
-  --shadow-xs:    0px 1px 2px rgba(0,0,0,0.05)
-  --shadow-sm:    0px 2px 8px rgba(0,0,0,0.04)
-  --shadow-md:    0px 6px 22px rgba(0,0,0,0.05)
-  --shadow-accent: 0px 4px 24px rgba(27,103,178,0.1)
-```
+| Escala | Tokens | Valores |
+|--------|--------|---------|
+| **Neutral** | 50→900 | #FFFFFF, #FAF9F5, #F0EEE6, #E8E6E0, #A3A29D, #73726C, #3D3D3A, #2A2927, #1F1F1E, #141413 |
+| **Beige** | 50→200 | #FAF9F5, #F0EEE6, #E8E6E0 |
+| **Blue** | 100→600 | #E3F2FD, #2C84DB, #1B67B2, #1565C0 |
+| **Terracotta** | 100→600 | #FAF0EB, #D97757, #C4622D, #A14D23 |
+| **Red** | 100→600 | #FFEBEE, #D4432F, #C62828, #8A2424 |
+| **Green** | 100, 500 | #E8F5E9, #2E7D32 |
+| **Amber** | 100, 500 | #FFF3E0, #E65100 |
+
+#### Espaciado (base 4px)
+
+| Token | Valor |
+|-------|-------|
+| space-1 → space-16 | 4px, 8px, 12px, 16px, 20px, 24px, 32px, 40px, 48px, 64px |
+
+#### Tipografía
+
+| Categoría | Tokens |
+|-----------|--------|
+| **Familias** | UI (system sans), Serif (Georgia), Mono (JetBrains), Dyslexia (OpenDyslexic) |
+| **Tamaños** | xs: 12px, sm: 14px, md: 16px, lg: 20px, xl: 24px, 2xl: 30px, 3xl: 36px |
+| **Pesos** | 400 (regular), 430–500 (medium), 600 (semibold), 700 (bold) |
+| **Line-height** | 1.2 (tight), 1.4–1.5 (normal), 1.6 (relaxed) |
+
+#### Otros primitivos
+
+| Categoría | Tokens |
+|-----------|--------|
+| **Radii** | xs: 4px, sm: 6px, md: 8px, lg: 12px, xl: 16px, full: 9999px |
+| **Sombras** | xs: `0 1px 2px rgba(0,0,0,.05)`, sm: `0 2px 8px rgba(0,0,0,.04)`, md: `0 6px 22px rgba(0,0,0,.05)`, accent: `0 4px 24px rgba(27,103,178,.1)` |
+| **Bordes** | 1px, 1.5px, 2px · opacidades 0.15, 0.30 |
+| **Duración** | 35ms, 100ms, 150ms, 200ms, 300ms |
+| **Easing** | standard `cubic-bezier(0.4,0,0.2,1)`, smooth `cubic-bezier(0.65,0,0.35,1)`, ease-out |
+
+### Tier 2 — Semántico (Alias con propósito)
+
+Naming: `--claude-sem-[category]-[role]`. **Solo este tier cambia entre light/dark mode.**
+
+| Categoría | Token | Ref. Global | Valor (light) |
+|-----------|-------|-------------|---------------|
+| **Background** | sem-bg-page | neutral-100 | #FAF9F5 |
+| | sem-bg-surface | neutral-50 | #FFFFFF |
+| | sem-bg-inverse | neutral-900 | #141413 |
+| | sem-bg-hover | neutral-200 | #F0EEE6 |
+| | sem-bg-brand | terracotta-500 | #C4622D |
+| | sem-bg-danger | red-400 | #D4432F |
+| **Foreground** | sem-fg-primary | neutral-900 | #141413 |
+| | sem-fg-secondary | neutral-600 | #3D3D3A |
+| | sem-fg-tertiary | neutral-500 | #73726C |
+| | sem-fg-link | blue-400 | #2C84DB |
+| | sem-fg-danger | red-500 | #C62828 |
+| | sem-fg-success | green-500 | #2E7D32 |
+| **Border** | sem-border-default | neutral-900 @ .15 | rgba(31,30,29,0.15) |
+| | sem-border-strong | neutral-900 @ .30 | rgba(31,30,29,0.30) |
+| | sem-border-focus | blue-400 @ .40 | rgba(44,132,219,0.40) |
+| **Radius** | sem-radius-card | radius-lg | 12px |
+| | sem-radius-button | radius-lg | 12px |
+| | sem-radius-pill | radius-full | 9999px |
+| **Shadow** | sem-shadow-elevated | shadow-sm | Cards |
+| | sem-shadow-floating | shadow-md | Dropdowns, modals |
+| | sem-shadow-focus | 0 0 0 3px blue/0.1 | Focus rings |
+
+### Tier 3 — Componente (ejemplo: Button)
+
+Naming: `--claude-comp-btn-[variant]-[property]-[state]`.
+
+| Propiedad | Primary | Secondary | Ghost | Danger |
+|-----------|---------|-----------|-------|--------|
+| **bg** | #141413 | transparent | transparent | #D4432F |
+| **bg-hover** | opacity .85 | #F0EEE6 | #F0EEE6 | opacity .9 |
+| **fg** | #FFFFFF | #141413 | #141413 | #FFFFFF |
+| **border** | none | rgba(31,30,29,.30) | none | none |
+| **radius** | 12px | 12px | 6px | 12px |
+| **padding** | 12px 24px | 12px 24px | 8px 12px | 12px 24px |
+| **font** | 14px / 500 | 14px / 500 | 14px / 500 | 14px / 500 |
+
+**Cadena de referencia:** `--claude-blue-400` (T1) → `--claude-sem-bg-interactive` (T2) → `--claude-comp-btn-primary-bg` (T3)
+
+> **Dark mode:** Solo los tokens T2 cambian entre themes. T1 permanece constante como paleta base y T3 hereda automáticamente.
 
 ---
 
-## 12. Recomendaciones
+## 12. Bloques de Código y Syntax Highlighting
+
+### Estilo del contenedor
+
+| Propiedad | Valor |
+|-----------|-------|
+| **Fuente** | `jetbrains` (custom), fallback: `ui-monospace, SFMono-Regular, Menlo, Monaco` |
+| **Tamaño** | `14px` |
+| **Line height** | `22.75px` (~1.625) |
+| **Padding** | `14px` (3.5 unidades de 4px) |
+| **Border radius** | `8px` |
+| **Header** | Label de lenguaje ("javascript") + botón "Copiar al portapapeles" |
+
+### Paleta de syntax highlighting
+
+| Color | RGB | Uso |
+|-------|-----|-----|
+| Base | `rgb(20, 24, 31)` / `#14181F` | Texto base del código |
+| Keywords | `rgb(129, 0, 194)` / `#8100C2` | Palabras clave (`function`, `return`) |
+| Functions | `rgb(0, 81, 194)` / `#0051C2` | Nombres de funciones |
+| Comments | `rgb(43, 48, 59)` / `#2B303B` | Comentarios |
+| Numbers | `rgb(184, 79, 5)` / `#B84F05` | Literales numéricos |
+| Strings | `rgb(0, 128, 128)` / `#008080` | Cadenas de texto |
+
+### Hallazgos
+- El fondo del bloque de código es transparente, hereda del contenedor padre (crema base)
+- No hay borde visible, solo el border-radius de 8px
+- La paleta de syntax highlighting usa tonos saturados que contrastan bien con el fondo cálido
+- El header con label de lenguaje es una buena práctica de UX
+
+---
+
+## 13. Animaciones y Transiciones
+
+### Curvas de easing utilizadas
+
+| Curva | Valor CSS | Uso |
+|-------|-----------|-----|
+| **Standard** | `cubic-bezier(0.4, 0, 0.2, 1)` | Transiciones generales de UI |
+| **Smooth (Quart out)** | `cubic-bezier(0.165, 0.85, 0.45, 1)` | Sidebar, botones, hover states |
+| **Ease out** | `cubic-bezier(0, 0, 0.2, 1)` | Opacity fade-in, gap |
+| **Ease in** | `cubic-bezier(0.4, 0, 1, 1)` | Opacity fade-out |
+| **Spring-like** | `cubic-bezier(0.19, 1, 0.22, 1)` | Transform (apertura de menús) |
+
+### Duraciones
+
+| Duración | Uso |
+|----------|-----|
+| `35ms` | Micro-interacciones rápidas (bg-color de botones en sidebar) |
+| `75ms` | Transiciones ultra-rápidas (hover en items pequeños) |
+| `100ms` | Hover en elementos medianos |
+| `150ms` | Transiciones estándar (botones, inputs, opacity) |
+| `200ms` | Outline focus, transforms |
+| `300ms` | Sidebar expand/collapse, hover con múltiples propiedades |
+| `500ms` | Fade-out lento de elementos |
+
+### Propiedades animadas
+
+- `background-color` — Hover de botones, sidebar items
+- `border-color` — Focus de inputs, hover de bordes
+- `box-shadow` — Focus rings, elevación
+- `color` — Cambio de color de texto en hover
+- `opacity` — Aparición/desaparición de elementos
+- `transform` — Apertura de menús, tooltips
+- `gap` — Animación de sidebar expand/collapse
+- `fill`, `stroke` — Cambio de color en iconos SVG
+
+### Keyframes
+
+| Nombre | Uso |
+|--------|-----|
+| `ProseMirror-cursor-blink` | Parpadeo del cursor en el editor de texto |
+| `look-around` | Micro-animación en el icono de Claude (movimiento sutil) |
+
+### Hallazgos
+- **Consistencia:** Se usan 2 curvas principales de easing en toda la app (standard y smooth)
+- **Rapidez:** Las duraciones son muy cortas (35–300ms), dando sensación de fluidez inmediata
+- **No hay animaciones decorativas excesivas:** Todo es funcional y sutil
+- **Sidebar:** La transición de expand/collapse usa `gap 0.3s` con ease-out, creando un efecto suave
+
+---
+
+## 14. Estados de Componentes
+
+### Botones
+
+| Estado | Cambio visual |
+|--------|--------------|
+| **Default** | Color y fondo base del variante |
+| **Hover** | `background-color` cambia (crema `#F0EEE6` para ghost/outline, opacity 0.85 para primario) |
+| **Focus** | `outline: 2px` azul del navegador + `box-shadow` sutil |
+| **Active/Pressed** | Sin cambio visual adicional visible (sin scale ni darkening) |
+| **Disabled** | Opacity reducida, cursor not-allowed |
+
+### Sidebar Items
+
+| Estado | Cambio visual |
+|--------|--------------|
+| **Default** | Fondo transparente, texto `#3D3D3A` |
+| **Hover** | Fondo `#F0EEE6` (crema medio), transición 300ms |
+| **Active (selected)** | Fondo `#F0EEE6` + `font-weight: 500` |
+| **Focus** | Outline del navegador |
+
+### Inputs
+
+| Estado | Cambio visual |
+|--------|--------------|
+| **Default** | Borde `rgba(31,30,29,0.3)` |
+| **Hover** | Sin cambio visible (no hay hover explícito) |
+| **Focus** | Borde `rgba(44,132,219,0.4)` + `box-shadow: 0 0 0 3px rgba(44,132,219,0.1)` |
+| **Filled** | Sin cambio respecto a default |
+| **Error** | No observado en la auditoría |
+
+### Chat Messages
+
+| Estado | Cambio visual |
+|--------|--------------|
+| **Default** | Acciones ocultas |
+| **Hover** | Aparecen iconos de acción (copiar, like, dislike, retry) con fade-in |
+| **Actions hover** | Cada icono tiene hover individual con fondo crema |
+
+### Menú contextual (Dropdown)
+
+| Estado | Cambio visual |
+|--------|--------------|
+| **Item default** | Fondo transparente |
+| **Item hover** | Fondo `#F0EEE6` |
+| **Item destructivo** | Texto rojo `#D4432F` ("Eliminar") |
+| **Separador** | Línea 1px con `border-light` |
+
+### Modal de confirmación
+
+| Elemento | Estilo |
+|----------|--------|
+| **Overlay** | Fondo semi-transparente oscuro |
+| **Card** | Fondo blanco/crema, `border-radius: 12px`, sombra md |
+| **Título** | `font-size: 18px`, `font-weight: 600` |
+| **Botón Cancel** | Estilo outline (transparente + borde) |
+| **Botón Eliminar** | Fondo rojo `#D4432F`, texto blanco, `border-radius: 8px` |
+
+### Selector de modelo
+
+| Elemento | Estilo |
+|----------|--------|
+| **Trigger** | Texto + chevron, sin borde visible |
+| **Dropdown** | Fondo blanco, sombra md, `border-radius: 12px` |
+| **Item seleccionado** | Checkmark azul a la derecha |
+| **Item bloqueado (Pro)** | Badge "Actualizar" azul |
+| **Separador** | Línea sutil entre secciones |
+| **Switch** | Toggle de pensamiento extendido integrado |
+
+### Hallazgos
+- **Botón destructivo encontrado:** El modal de eliminar chat SÍ usa botón rojo (`#D4432F`), a diferencia de "Eliminar cuenta" en settings que usa negro. Inconsistencia confirmada.
+- **Hover en chat messages:** Las acciones solo aparecen on hover, lo que puede ser un problema de accesibilidad en dispositivos táctiles.
+- **Focus visible limitado:** La mayoría de componentes dependen del outline nativo del navegador.
+
+---
+
+## 15. Componentes adicionales descubiertos
+
+### Menú de adjuntos (+ button)
+
+El botón "+" junto al input de chat despliega un menú con:
+- **Añadir archivos o fotos** (⌘U) — con icono de clip
+- **Hacer una captura de pantalla** — con icono de cámara
+- **Añadir al proyecto** — con icono de carpeta + chevron (submenu)
+- *Separador*
+- **Búsqueda web** — toggle checkbox (activado por defecto, texto azul)
+- **Usar estilo** — con chevron (submenu)
+- **Añadir conectores** — con icono de puzzle
+
+### Modal de búsqueda (Cmd+K)
+
+- **Trigger:** Link "Buscar" en sidebar o atajo ⌘K
+- **Input:** Placeholder "Buscar chats y proyectos", icono de lupa + filtro
+- **Resultados:** Lista con icono de chat + título + timestamp relativo ("Última semana")
+- **Item activo:** Fondo crema + indicador de Enter (⏎)
+- **Overlay:** Fondo semi-transparente
+
+### Dialog promocional (Cowork)
+
+- **Layout:** 2 columnas (texto izquierda, preview derecha)
+- **Badge:** "Vista previa" en verde/azul
+- **Título:** Serif grande, ~28px
+- **CTA primario:** Botón negro "Descargar aplicación de escritorio"
+- **CTA secundario:** Botón outline "Más tarde"
+- **Botón cerrar:** X en esquina superior derecha
+
+---
+
+## 16. Recomendaciones
 
 1. **Normalizar border-radius:** Reducir de 6 valores a 4 (sm: 6px, md: 8px, lg: 12px, full: 9999px)
-2. **Añadir botón destructivo:** Crear variante roja/warning para acciones irreversibles
+2. **Unificar botón destructivo:** El modal de eliminar chat usa rojo `#D4432F`, pero "Eliminar cuenta" en settings usa negro. Unificar a rojo para todas las acciones destructivas.
 3. **Mejorar contraste del gris terciario:** Oscurecer `#73726C` a ~`#666` para cumplir WCAG AA en texto pequeño
 4. **Documentar font-weight 430:** Si es intencional con variable fonts, tener fallback explícito
 5. **Unificar sombras de acento:** Las sombras azules de la card Pro deberían ser parte del sistema o eliminarse
 6. **Mejorar alt text de artefactos:** Las imágenes de inspiración necesitan descripciones más detalladas
 7. **Focus ring explícito:** Añadir un `outline` o `ring` visible y consistente para navegación por teclado
+8. **Acciones de chat en táctil:** Las acciones de mensaje (copiar, like, dislike) solo aparecen en hover. Necesitan alternativa para dispositivos táctiles.
+9. **Consistencia de easing:** Se usan 5 curvas de easing diferentes. Considerar reducir a 2-3 (standard, smooth, spring).
+10. **Internacionalización del modal de modelo:** Las descripciones de Opus 4.6 están en inglés ("Most capable for ambitious work") mientras el resto de la UI está en español.
+11. **Accesibilidad del dialog de búsqueda:** Falta `DialogTitle` accesible (error en consola: "`DialogContent` requires a `DialogTitle`").
