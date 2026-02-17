@@ -423,7 +423,8 @@
 
     /* ===== METRICS ===== */
     .metrics-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 32px; }
-    .metric { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 16px; text-align: center; }
+    .metric { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 16px; text-align: center; transition: box-shadow 0.15s, border-color 0.15s; }
+    .metric[onclick]:hover { box-shadow: var(--shadow-md); border-color: var(--border-medium); }
     .metric__value { font-size: 28px; font-weight: 700; color: var(--text-primary); line-height: 1; }
     .metric__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-top: 4px; }
 
@@ -625,12 +626,14 @@
 
 
     <div class="metrics-row">
-      <div class="metric"><div class="metric__value">22</div><div class="metric__label">Pantallas</div></div>
-      <div class="metric"><div class="metric__value">7</div><div class="metric__label">Variantes de botón</div></div>
-      <div class="metric"><div class="metric__value">51</div><div class="metric__label">Iconos únicos</div></div>
-      <div class="metric"><div class="metric__value">9</div><div class="metric__label">Tokens de color</div></div>
-      <div class="metric"><div class="metric__value">5</div><div class="metric__label">Curvas easing</div></div>
-      <div class="metric"><div class="metric__value">16</div><div class="metric__label">Hallazgos</div></div>
+      <div class="metric" onclick="go('screenshots')" style="cursor:pointer;"><div class="metric__value">22</div><div class="metric__label">Pantallas</div></div>
+      <div class="metric" onclick="go('buttons')" style="cursor:pointer;"><div class="metric__value">7</div><div class="metric__label">Variantes de botón</div></div>
+      <div class="metric" onclick="go('icons')" style="cursor:pointer;"><div class="metric__value">51</div><div class="metric__label">Iconos únicos</div></div>
+      <div class="metric" onclick="go('tokens-global')" style="cursor:pointer;"><div class="metric__value">80</div><div class="metric__label">Tokens globales</div></div>
+      <div class="metric" onclick="go('tokens-semantic')" style="cursor:pointer;"><div class="metric__value">51</div><div class="metric__label">Tokens semánticos</div></div>
+      <div class="metric" onclick="go('tokens-component')" style="cursor:pointer;"><div class="metric__value">32</div><div class="metric__label">Tokens componente</div></div>
+      <div class="metric" onclick="go('animations')" style="cursor:pointer;"><div class="metric__value">5</div><div class="metric__label">Curvas easing</div></div>
+      <div class="metric" onclick="go('issues')" style="cursor:pointer;"><div class="metric__value">16</div><div class="metric__label">Hallazgos</div></div>
     </div>
 
     <div class="method-note">
